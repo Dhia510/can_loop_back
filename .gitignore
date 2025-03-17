@@ -1,0 +1,36 @@
+# Build artifacts
+/Debug/
+/Release/
+/build/
+/*.o
+/*.d
+/*.elf
+/*.bin
+/*.hex
+/*.map
+/*.list
+/*.srec
+/*.a
+
+# CubeIDE settings and metadata
+/.settings/
+/.metadata/
+/*.launch
+*.pyc
+*.bak
+*.tmp
+
+# Logs and temporary files
+*.log
+*.swp
+*.swo
+*.stackdump
+*.pid
+
+# STM32CubeMX backup files
+*.ioc.bak
+*.dep
+
+# VSCode or other editor settings (if used)
+.vscode/
+.idea/
