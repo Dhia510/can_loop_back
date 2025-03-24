@@ -43,7 +43,7 @@ void can_params_init(uint8_t mode){
 
 	/*Configure timing parameters including baudrate by configuring time segment 1 and 2
 	 * and prescaler*/
-	CAN1->BTR = (1<< CAN_BTR_TS1_Pos) | (0 << CAN_BTR_TS1_Pos) | (9 << CAN_BTR_BRP_Pos);
+	CAN1->BTR = (4 << CAN_BTR_TS1_Pos) | (1 << CAN_BTR_TS2_Pos) | (5 << CAN_BTR_BRP_Pos);
 	/*Select mode*/
 	if(mode)
 	{
@@ -249,8 +249,8 @@ void can_filter_config(uint16_t std_id)
 	/*Set identifier*/
 	CAN1->sFilterRegister[18].FR1 = (std_id << 21);
 
-	/*Set identifier mask*/
-	CAN1->sFilterRegister[18].FR2 = (std_id << 21);
+    /* Set identifier mask to match only the 11-bit ID */
+    CAN1->sFilterRegister[18].FR2 = (0x7FF << 21); // Match only the ID bits
 
 	/*Assign filter 18 to FIFO0*/
 	CAN1->FFA1R &=~(CAN_FFA1R_FFA18);

@@ -37,10 +37,6 @@ int main()
 	can_filter_config(0x244);
 	can_start();
 
-
-
-
-
 	while(1)
 	{
 
